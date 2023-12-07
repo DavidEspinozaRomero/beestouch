@@ -3,16 +3,15 @@
     <h2>Sidenav</h2>
     <ul>
       @for (item of navList; let idx = $index ; track item.name) {
-      <li [routerLink]="item.route" routerLinkActive="router-link-active" >{{ item.name }}</li>
+      <li [routerLink]="item.route" routerLinkActive="router-link-active">
+        {{ item.name }}
+      </li>
       } @empty {
       <li>There are no items.</li>
       }
     </ul>
   </mat-drawer>
   <app-header (toggleNav)="drawer.toggle()" />
-  <ng-content select="selector"></ng-content>
-  <ng-container> </ng-container>
-  <!-- <ng-container >
-    <router-outlet></router-outlet>
-  </ng-container> -->
+  <!-- <router-outlet></router-outlet> -->
+  <ng-content> </ng-content>
 </mat-drawer-container>

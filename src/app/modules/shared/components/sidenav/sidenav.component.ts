@@ -13,6 +13,8 @@ import { HeaderComponent } from '../header/header.component';
   styleUrl: './sidenav.component.scss',
 })
 export class SidenavComponent {
+  
+  bgCubes = Array(16*12)
   navList = [
     {
       name: 'Home',

@@ -12,6 +12,11 @@
     </ul>
   </mat-drawer>
   <app-header (toggleNav)="drawer.toggle()" />
-  <!-- <router-outlet></router-outlet> -->
+  <div class="bg_hexagon_container">
+    @for(cube of bgCubes; let i_bg = $index; track i_bg){
+    <img class="hexagon" alt="hexagon">
+    <!-- <svg class='hexagon-container' viewBox="0 0 174 200" xmlns="http://www.w3.org/2000/svg"><path class="hexagon" d="M0.897461 50.2887L87 0.57735L173.103 50.2887V149.711L87 199.423L0.897461 149.711V50.2887Z"/></svg> -->
+    }
+  </div>
   <ng-content> </ng-content>
 </mat-drawer-container>

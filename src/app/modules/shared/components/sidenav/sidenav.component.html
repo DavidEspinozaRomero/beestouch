@@ -15,10 +15,30 @@
   <div class="hexagon_gallery">
     @for(cube of bgCubes; let i_bg = $index; track i_bg){
     <div class="hexagon_gallery_item card-cover">
-      <img src="../../../../../assets/imgs/logo.jpg" alt="" srcset="">
-      <div class="item_buttons_container">
-        <button type="button" class="detail"> detalle </button>
-        <button type="button" class="cart"> + carrito </button>
+      <img src="../../../../../assets/imgs/logo.jpg" alt="" srcset="" />
+      <div class="card-info">
+        <div class="card_title d-none">
+          <h2> Shampoo de miel y gengibre </h2>
+        </div>
+        <div class="item_buttons_container">
+          <button mat-icon-button class="detail" aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon aria-hidden="false" aria-label="info icon" fontIcon="info"></mat-icon>
+          </button>
+          <button mat-icon-button class="detail" aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon aria-hidden="false" aria-label="add_shopping_cart icon" fontIcon="add_shopping_cart"></mat-icon>
+          </button>
+          <button mat-icon-button class="detail" aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
+          </button>
+          <button mat-icon-button class="detail" aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon aria-hidden="false" aria-label="favorite icon" fontIcon="favorite"></mat-icon>
+          </button>
+
+      </div>
+        
+        <!-- <input type="text"> -->
+        <!-- <button type="button" class="detail">detalle</button>
+        <button type="button" class="cart">+ carrito</button> -->
       </div>
       <!-- <span class="hexagon" alt="hexagon"></span> -->
     </div>

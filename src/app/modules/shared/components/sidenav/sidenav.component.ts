@@ -14,7 +14,7 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class SidenavComponent {
   
-  bgCubes = Array(16*12)
+  bgCubes = Array(8)
   navList = [
     {
       name: 'Home',

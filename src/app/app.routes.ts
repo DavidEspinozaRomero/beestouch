@@ -45,6 +45,19 @@ export const routes: Routes = [
           import('./modules').then((m) => m.ContactComponent),
       },
       {
+        path: 'products',
+        loadComponent: () =>
+          import('./modules').then((m) => m.ProductsComponent),
+          // children: [
+            // {
+            //   path: 'detail-product:id',
+            //   loadComponent: () =>
+            //     import('./modules').then((m) => m.DetailProductComponent),
+            // },
+            
+          // ]
+      },
+      {
         path: 'detail-product',
         loadComponent: () =>
           import('./modules').then((m) => m.DetailProductComponent),

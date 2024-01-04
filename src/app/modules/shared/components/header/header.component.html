@@ -16,21 +16,24 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span>Beestouch</span>
-    <img src="../../../../../assets/imgs/logo.png" class="logo" alt="Beestouch logo">
+    <img
+      src="../../../../../assets/imgs/logo.png"
+      class="logo"
+      alt="Beestouch logo"
+    />
     <span class="spacer"></span>
     <button
       mat-icon-button
       class="example-icon favorite-icon"
       aria-label=" icon-button with heart icon"
     >
-      <mat-icon>favorite</mat-icon>
+      <mat-icon> favorite </mat-icon>
     </button>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="chart icon"
-    >
-      <mat-icon>add_shopping_cart</mat-icon>
+    <button mat-icon-button class="example-icon" aria-label="chart icon">
+      <!-- (click)="toggleBadgeVisibility()" -->
+      <mat-icon [matBadge]="count()" matBadgeColor="warn" [matBadgeHidden]="count() ? false : true">
+        add_shopping_cart
+      </mat-icon>
     </button>
   </mat-toolbar>
 </p>

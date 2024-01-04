@@ -2,21 +2,18 @@ import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 
 import { HeaderComponent } from '../header/header.component';
+import { ProductsComponent } from '../../../products/products.component';
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
-  imports: [RouterModule,MatSidenavModule,MatButtonModule, MatIconModule, HeaderComponent],
+  imports: [RouterModule, MatSidenavModule, HeaderComponent, ProductsComponent],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss',
 })
 export class SidenavComponent {
-  
-  bgCubes = Array(8)
   navList = [
     {
       name: 'Home',

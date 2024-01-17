@@ -1,1 +1,80 @@
-<p>payments works!</p>
+<div class="payments-container">
+  <!-- <router-outlet></router-outlet> -->
+  @if(!isCheckout) {
+  <div class="cart-container">
+    <!-- <app-cart></app-cart> -->
+    <h2>Carrito</h2>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="cartForm">
+      <table aria-label="CartDetail" class="tableCart">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody formArrayName="products">
+          @for(product of productsQuantity.value; let product_i = $index; track
+          product_i){
+          <tr [formGroupName]="product_i">
+            <td>{{ product_i }}</td>
+            <td><img src="{{ product.image }}" class="product-image" /></td>
+            <td>{{ product.title }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+              <input
+                type="number"
+                matInput
+                min="0"
+                max="100"
+                placeholder="Ingrese una cantidad"
+                formControlName="quantity"
+              />
+            </td>
+            <td>{{ product.price * product.quantity | currency }}</td>
+            <td>
+              <button
+                mat-icon-button
+                class="detail"
+                aria-label="Example icon button with a vertical three dot icon"
+                (click)="removeFromCartDetail(product_i)"
+              >
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="share icon"
+                  fontIcon="delete"
+                ></mat-icon>
+              </button>
+            </td>
+          </tr>
+
+          }
+          <tr>
+            <td colspan="6" class="text-right">
+              <b>TOTAL: {{ getTotal() | currency }}</b>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <button mat-raised-button type="submit" class="float-right">
+        Ir al Pedido
+      </button>
+    </form>
+  </div>
+  } @if(isCheckout) {
+  <app-checkout></app-checkout>
+  <app-cart-detail></app-cart-detail>
+
+  }
+
+  <div>
+    <p>isValid: {{ cartForm.valid }}</p>
+    <pre> Values: {{ cartForm.value | json }}</pre>
+  </div>
+</div>

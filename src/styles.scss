@@ -1,13 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./styles/utils";
 
-html,
-body {
-  height: 100%;
-  box-sizing: content-box;
+* {
+  box-sizing: border-box;
+  min-width: 0;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 body {
   margin: 0;
+  min-height: 100dvh;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -15,6 +29,17 @@ body {
 //   height: 100dvh;
 // }
 
-.d-none{
+.d-none {
   display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.float-right {
+  float: right;
 }

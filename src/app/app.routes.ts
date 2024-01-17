@@ -48,17 +48,9 @@ export const routes: Routes = [
         path: 'products',
         loadComponent: () =>
           import('./modules').then((m) => m.ProductsComponent),
-          // children: [
-            // {
-            //   path: 'detail-product:id',
-            //   loadComponent: () =>
-            //     import('./modules').then((m) => m.DetailProductComponent),
-            // },
-            
-          // ]
       },
       {
-        path: 'detail-product',
+        path: 'detail-product/:id',
         loadComponent: () =>
           import('./modules').then((m) => m.DetailProductComponent),
       },
@@ -72,7 +64,7 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./modules').then((m) => m.PrivacyPolicyComponent),
       },
-      { path: '**', redirectTo: '', pathMatch: 'full' },
+      { path: '', redirectTo: '/', pathMatch: 'full' },
       {
         path: '**',
         loadComponent: () =>

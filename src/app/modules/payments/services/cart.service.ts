@@ -1,41 +1,61 @@
 import { Injectable, signal } from '@angular/core';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   //#region Variables
-  public cart: Cart = {
+  private cart: Cart = {
     products: [],
     count: 0,
     shipping: '',
     code: '',
     discount: 0,
-    total: 0,
   };
 
   count = signal(0);
-  //#endregion Variables
-  constructor() {}
 
+  get cartInfo() {
+    return structuredClone(this.cart);
+  }
+  //#endregion Variables
+  constructor(private _snackBar: MatSnackBar) {
+    for (let i = 1; i < 3; i++) {
+      this.cart.products.push({
+        id: i,
+        title: 'shampoo' + i,
+        price: +(Math.random() * 10 + 1).toFixed(2),
+        quantity: +(Math.random() * 5 + 1).toFixed(0),
+        image: '../../../../../assets/imgs/logo.jpg',
+        description: 'shampoo de miel y gengibre',
+      });
+    }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
   //#region Methods
   public addToCart(product: Product) {
-    if (this.findProductById(product))
-      {
-        this.updateQuantity(product, product.quantity);
-        console.log('Product already exists');
-        return 
-      }
+    if (this.findProductById(product)) {
+      this.openSnackBar('Producto ya esta en el carrito', 'OK');
+      return;
+    }
+
     this.cart.products.push(product);
     this.cart.count++;
     this.count.set(this.cart.count);
+    this.openSnackBar('Producto agregado al carrito', 'OK');
   }
   updateQuantity(product: Product, quantity: number) {
     const index = this.findProduct(product);
     if (index == -1) return console.log('Product not found');
-    this.cart.products[index].quantity += quantity;
-    this.cart.products[index].total = this.cart.products[index].price * this.cart.products[index].quantity;
-    console.log('Product:', this.cart.products[index] );
+    this.cart.products[index].quantity! = quantity;
+    console.log('Product:', this.cart.products[index]);
   }
 
   public removeFromCart(product: Product) {
@@ -59,20 +79,18 @@ export class CartService {
   //#endregion Methods
 }
 
-interface Cart {
+export interface Cart {
   products: Product[];
   count: number;
   shipping: string;
-  code: string;
-  discount: number;
-  total: number;
+  code?: string;
+  discount?: number;
 }
-interface Product {
+export interface Product {
   id: number;
   title: string;
+  description?: string;
   price: number;
-  quantity: number;
-  total: number;
   image: string;
-  description: string;
+  quantity?: number;
 }

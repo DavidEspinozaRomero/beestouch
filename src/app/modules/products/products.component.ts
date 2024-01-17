@@ -16,20 +16,43 @@ import { CartService } from '../payments/services/cart.service';
 export class ProductsComponent {
   cartService = inject(CartService);
   count = this.cartService.count();
-  products = Array(8);
-  constructor() {}
+  product1 = {
+    id: 1,
+    title: 'shampoo',
+    price: 5,
+    quantity: 1,
+    total: 5,
+    image: '../../../../../assets/imgs/logo.jpg',
+    description: 'shampoo de miel y gengibre',
+  };
+  products: {
+    id: number;
+    title: string;
+    price: number;
+    quantity: number;
+    total: number;
+    image: string;
+    description: string;
+  }[] = [];
+
+  constructor() {
+    for (let i = 1; i < 8; i++) {
+      this.products.push({
+        id: i,
+        title: 'shampoo',
+        price: +(Math.random() * 10 + 1).toFixed(2),
+        quantity: 1,
+        total: 5,
+        image: '../../../../../assets/imgs/logo.jpg',
+        description: 'shampoo de miel y gengibre',
+      });
+    }
+  }
 
   addProductToCart(product: any) {
-    const product1 = {
-      id: 1,
-      title: 'shampoo',
-      price: 5,
-      quantity: 1,
-      total: 5,
-      image: '',
-      description: 'shampoo de miel y gengibre',
-    };
-    this.cartService.addToCart(product1);
+    console.log(this.products);
+
+    this.cartService.addToCart(product);
   }
 
   removeProductFromCart(product: any) {

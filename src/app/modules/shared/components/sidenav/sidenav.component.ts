@@ -31,5 +31,13 @@ export class SidenavComponent {
       name: 'Payments',
       route: 'payments',
     },
+    {
+      name: 'Products',
+      route: 'products',
+    },
+    {
+      name: 'Payments',
+      route: 'payments',
+    },
   ];
 }

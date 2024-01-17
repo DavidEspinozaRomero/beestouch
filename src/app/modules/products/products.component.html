@@ -2,17 +2,18 @@
 <div class="hexagon_gallery">
   @for(product of products; let i_bg = $index; track i_bg){
   <div class="hexagon_gallery_item card-cover">
-    <img src="../../../../../assets/imgs/logo.jpg" alt="" srcset="" lazyload />
+    <!-- <img src="../../../../../assets/imgs/logo.jpg" alt="" srcset="" lazyload /> -->
+    <img [src]="product.image" alt="" lazyload />
     <div class="card-info">
       <div class="card_title d-none">
-        <h2>Shampoo de miel y gengibre</h2>
+        <h2>{{ product.title }}</h2>
       </div>
       <div class="item_buttons_container">
         <button
           mat-icon-button
           class="detail"
           aria-label="Example icon button with a vertical three dot icon"
-          [routerLink]="['/detail-product']" routerLinkActive="router-link-active" 
+          [routerLink]="['/detail-product/' + product.id, { id: product.id }]"
         >
           <mat-icon
             aria-hidden="false"

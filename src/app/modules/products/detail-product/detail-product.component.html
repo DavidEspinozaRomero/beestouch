@@ -2,38 +2,42 @@
   <div class="product_image_wrapper">
     <img
       class="product_image"
-      src="../../../../../assets/imgs/logo.jpg"
-      alt=""
-      srcset=""
+      [src]="product.image"
+      [alt]="product.title"
       lazyload
     />
   </div>
   <section class="product_info">
-    <h2 class="">product title</h2>
+    <h2 class="">{{ product.title | titlecase }}</h2>
     <p>
-      <span class=""> Price $15 </span> <br />
-      <span class=""> impuestos inlcuidos</span>
+      <span class=""> Presio: {{ product.price | currency : "USD" }} </span>
+      <br />
+      <small class=""> * impuestos incluidos</small>
     </p>
 
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas veritatis
-      deserunt eius in earum quod non eligendi, culpa dignissimos commodi
-      suscipit tempora accusantium perspiciatis labore distinctio aspernatur
-      fugiat voluptatem vitae? Inventore officiis dolorum hic illum placeat,
-      eaque quo consequatur, vel eum repudiandae voluptate doloribus ut officia
-      pariatur ipsa adipisci deserunt ipsum aliquid! At ab nostrum nihil dicta
-      possimus hic voluptatem.
-    </p>
+    <p>{{ product.description }}</p>
+    <button
+      matSuffix
+      mat-icon-button
+      aria-label="addProductToCart"
+      (click)="addProductToCart(product)"
+    >
+      <mat-icon>add_shopping_cart</mat-icon>
+    </button>
 
-    <mat-form-field class="product-quantity-form-field">
-      <mat-label>Cantidad</mat-label>
-      <input min="1" max="99" type="number" matInput [(ngModel)]="value">
-      @if (value) {
-        <button matSuffix mat-icon-button aria-label="Clear" (click)="addProductToCart(product)">
-          <mat-icon>add_shopping_cart</mat-icon>
-        </button>
+    <!-- <mat-form-field class="product-quantity-form-field">
+      <mat-label>Cantidad: {{ product?.quantity ?? 0 }}</mat-label>
+      <input min="1" max="99" type="number" matInput [(ngModel)]="quantity" />
+      @if (quantity) {
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="addProductToCart"
+        (click)="addProductToCart(product, +quantity)"
+      >
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
       }
-    </mat-form-field>
-
+    </mat-form-field> -->
   </section>
 </article>

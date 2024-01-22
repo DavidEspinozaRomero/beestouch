@@ -1,6 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Cart, Product } from '../models';
+import { IPurchaseUnit } from 'ngx-paypal';
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +17,15 @@ export class CartService {
     discount: 0,
   };
 
+  #order: IPurchaseUnit[] | undefined;
+
   count = signal(0);
 
   get cartInfo() {
     return structuredClone(this.cart);
+  }
+  get order() {
+    return structuredClone(this.#order);
   }
   //#endregion Variables
   constructor(private _snackBar: MatSnackBar) {
@@ -52,14 +59,14 @@ export class CartService {
     this.openSnackBar('Producto agregado al carrito', 'OK');
   }
   updateQuantity(product: Product, quantity: number) {
-    const index = this.findProduct(product);
+    const index = this.findProductIndex(product);
     if (index == -1) return console.log('Product not found');
     this.cart.products[index].quantity! = quantity;
     console.log('Product:', this.cart.products[index]);
   }
 
   public removeFromCart(product: Product) {
-    const index = this.findProduct(product);
+    const index = this.findProductIndex(product);
     if (index == -1) return console.log('Product not found');
     this.cart.products.splice(index, 1);
     this.cart.count--;
@@ -69,28 +76,45 @@ export class CartService {
     this.cart.products = [];
   }
 
-  findProduct(product: Product) {
+  findProductIndex(product: Product) {
     const index = this.cart.products.indexOf(product);
     return index;
   }
   findProductById(product: Product) {
     return this.cart.products.find((prod) => prod.id == product.id);
   }
-  //#endregion Methods
-}
 
-export interface Cart {
-  products: Product[];
-  count: number;
-  shipping: string;
-  code?: string;
-  discount?: number;
-}
-export interface Product {
-  id: number;
-  title: string;
-  description?: string;
-  price: number;
-  image: string;
-  quantity?: number;
+  createOrder(copyCart: Cart) {
+    const purchase_units: IPurchaseUnit[] = [];
+    for (const product of copyCart.products) {
+      const { id, title, price, quantity } = product;
+      purchase_units.push({
+        amount: {
+          currency_code: 'USD',
+          value: `${price}`,
+          breakdown: {
+            // discount: { currency_code: 'USD', value: `${copyCart.discount}` },
+            item_total: {
+              currency_code: 'USD',
+              value: `${price}`,
+            },
+          },
+        },
+        items: [
+          {
+            name: `${title}`,
+            quantity: `${quantity}`,
+            category: 'DIGITAL_GOODS',
+            unit_amount: {
+              currency_code: 'USD',
+              value: `${price}`,
+            },
+          },
+        ],
+      });
+    }
+    this.#order = purchase_units;
+    console.log(this.#order);
+  }
+  //#endregion Methods
 }

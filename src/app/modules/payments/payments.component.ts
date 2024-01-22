@@ -13,9 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 // import { NgxPayPalModule } from 'ngx-paypal';
 
-import { Cart, CartService, Product } from './services/cart.service';
+import { CartService } from './services/cart.service';
 import { CartDetailComponent } from './components';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { Cart, Product } from './models';
 
 @Component({
   selector: 'app-payments',
@@ -41,9 +42,8 @@ export class PaymentsComponent {
     isLoading: false,
     isChecking: false,
   };
-  isCheckout = true;
+  isCheckout = false;
   cart: Cart = this.cartService.cartInfo;
-  order!: Cart;
   cartForm = this.fb.group({ products: this.fb.array([]) });
   today = new Date();
 
@@ -96,14 +96,13 @@ export class PaymentsComponent {
       console.log('Form is not valid');
       return;
     }
-    const products = this.cartForm.value.products;
-    if (!products) {
-      console.log('No products');
+    let clonedCart = structuredClone(this.cartForm.value) as Cart;
 
+    if (!clonedCart.products) {
+      console.log('No products');
       return;
     }
-    // this.order.products = products;
-    // structuredClone() as Product[];
+    this.cartService.createOrder(clonedCart);
     this.isCheckout = true;
   }
 }

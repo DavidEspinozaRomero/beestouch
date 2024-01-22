@@ -1,132 +1,170 @@
-<mat-stepper
-  orientation="vertical"
-  [linear]="isValidControl(billingForm, 'client')"
-  #stepper
->
-  <mat-step [stepControl]="billingForm">
-    <form [formGroup]="billingForm">
-      <ng-template matStepLabel> Nota de venta </ng-template>
-      <mat-form-field class="full-width">
-        <mat-label>Cliente</mat-label>
-        <input
-          matInput
-          placeholder="Empresa / Nombre"
-          formControlName="client"
-          required
-        />
-        @if (isValidControl(billingForm, 'client')) {
-        <mat-error> Ingrese el nombre del cliente </mat-error>
-        }
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Ciudad</mat-label>
-        <input matInput placeholder="Ciudad" formControlName="city" required />
-        @if (isValidControl(billingForm, 'city')) {
-        <mat-error>Ingrese la ciudad</mat-error>
-        }
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Teléfono</mat-label>
-        <input
-          matInput
-          placeholder="Teléfono"
-          formControlName="phone"
-          required
-        />
-        @if (isValidControl(billingForm, 'phone')) {
-        <mat-error>Ingrese un teléfono</mat-error>
-        }
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Dirección</mat-label>
-        <input
-          matInput
-          placeholder="Dirección"
-          formControlName="address"
-          required
-        />
-        @if (isValidControl(billingForm, 'address')) {
-        <mat-error>Ingrese una dirección</mat-error>
-        }
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>RUC o Cédula</mat-label>
-        <input
-          matInput
-          placeholder="180321654987001"
-          formControlName="ruc"
-          required
-        />
-        @if (isValidControl(billingForm, 'ruc')) {
-        <mat-error>Ingrese su RUC o Cédula</mat-error>
-        }
-      </mat-form-field>
+<div class="stepper-container">
+  <mat-stepper orientation="vertical" [linear]="false" #stepper>
+    <mat-step [stepControl]="billingForm">
+      <form [formGroup]="billingForm">
+        <ng-template matStepLabel> Nota de venta </ng-template>
+        <mat-form-field class="full-width">
+          <mat-label>Cliente</mat-label>
+          <input
+            matInput
+            placeholder="Empresa / Nombre"
+            formControlName="client"
+            required
+          />
+          @if (isValidControl(billingForm, 'client')) {
+          <mat-error> Ingrese el nombre del cliente </mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Ciudad</mat-label>
+          <input
+            matInput
+            placeholder="Ambato"
+            formControlName="city"
+            required
+          />
+          @if (isValidControl(billingForm, 'city')) {
+          <mat-error>Ingrese la ciudad</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Teléfono</mat-label>
+          <input
+            matInput
+            placeholder="593 987 654 321"
+            formControlName="phone"
+            required
+          />
+          @if (isValidControl(billingForm, 'phone')) {
+          <mat-error>Ingrese un teléfono</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Dirección</mat-label>
+          <input
+            matInput
+            placeholder="Av. Los Naranjos 123, Calle 123, Piso 2, Depto 3"
+            formControlName="address"
+            required
+          />
+          @if (isValidControl(billingForm, 'address')) {
+          <mat-error>Ingrese una dirección</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>RUC o Cédula</mat-label>
+          <input
+            matInput
+            placeholder="1803216549"
+            formControlName="ruc"
+            required
+          />
+          @if (isValidControl(billingForm, 'ruc')) {
+          <mat-error>Ingrese su RUC o Cédula</mat-error>
+          }
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </form>
+      <!-- <div>
+        <p>isValid: {{ billingForm.valid }}</p>
+        <pre>Values: {{ billingForm.value | json }}</pre>
+      </div> -->
+    </mat-step>
+    <mat-step [stepControl]="shipingAddressForm">
+      <form [formGroup]="shipingAddressForm">
+        <ng-template matStepLabel> Direccion de envío </ng-template>
+        <mat-form-field class="full-width">
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            placeholder="Juan Perez"
+            formControlName="name"
+            required
+          />
+          @if (isValidControl(shipingAddressForm, 'name')) {
+          <mat-error>Ingrese su RUC o Cédula</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Ciudad</mat-label>
+          <input
+            matInput
+            placeholder="Ambato"
+            formControlName="city"
+            required
+          />
+          @if (isValidControl(shipingAddressForm, 'city')) {
+          <mat-error>Ingrese una ciudad </mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Dirección Específica</mat-label>
+          <input
+            matInput
+            placeholder="Av Quis quis y Eloy alfaro No 50, a una cuadra de la iglesia de San Ignacio"
+            formControlName="address"
+            required
+          />
+          @if (isValidControl(shipingAddressForm, 'address')) {
+          <mat-error>Ingrese una dirección específica </mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Comentario</mat-label>
+          <textarea matInput placeholder="" formControlName="comment">
+          </textarea>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Atras</button>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+        <div>
+          <p>isValid: {{ shipingAddressForm.valid }}</p>
+          <pre> Values: {{ shipingAddressForm.value | json }}</pre>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Methodo de pago</ng-template>
+      <form [formGroup]="paymentForm">
+        <mat-radio-group formControlName="type">
+          <mat-radio-button value="bankTransfer"
+            >Transferencia Bancaria</mat-radio-button
+          >
+          <mat-radio-button value="paypal">Paypal</mat-radio-button>
+        </mat-radio-group>
+      </form>
+      @if(paymentForm.value.type === 'bankTransfer'){
+      <h3>Cuentas Bancarias</h3>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <p class="bank-info">
+          <b>Banco Pichincha</b>
+          David Espinoza <br />
+          Cuenta Ahorros: 000-000-000-000 <br />
+          RUC: 0000000000000
+          <!-- Cuenta Corriente: 000-000-000-000 -->
+          <br />
+          <br />
+        </p>
       </div>
-    </form>
-    <!-- <div>
-      <p>isValid: {{ billingForm.valid }}</p>
-      <pre>Values: {{ billingForm.value | json }}</pre>
-    </div> -->
-  </mat-step>
-  <mat-step [stepControl]="shipingAddressForm">
-    <form [formGroup]="shipingAddressForm">
-      <ng-template matStepLabel> Direccion de envío </ng-template>
-      <mat-form-field class="full-width">
-        <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Nombre" formControlName="name" required />
-        @if (isValidControl(shipingAddressForm, 'name')) {
-        <mat-error>Ingrese su RUC o Cédula</mat-error>
+      } @if(paymentForm.value.type === 'paypal'){
+      <ng-container>
+        <ngx-paypal
+          [config]="payPalConfig"
+          (scriptLoaded)="isScriptLoaded = true"
+        ></ngx-paypal>
+        @if(!isScriptLoaded) {
+        <mat-spinner></mat-spinner>
         }
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Ciudad</mat-label>
-        <input matInput placeholder="Ambato" formControlName="city" required />
-        @if (isValidControl(shipingAddressForm, 'city')) {
-        <mat-error>Ingrese una ciudad </mat-error>
-        }
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Dirección Específica</mat-label>
-        <input
-          matInput
-          placeholder="Ambato, Av Quis quis y Eloy alfaro No 50, a una cuadra de la iglesia de San Ignacio"
-          formControlName="address"
-          required
-        />
-        @if (isValidControl(shipingAddressForm, 'address')) {
-        <mat-error>Ingrese una dirección específica </mat-error>
-        }
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Comentario</mat-label>
-        <textarea
-          matInput
-          placeholder="Ambato, Av Quis quis y Eloy alfaro No 50, a una cuadra de la iglesia de San Ignacio"
-          formControlName="comment"
-        >
-        </textarea>
-      </mat-form-field>
+      </ng-container>
+      }
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Atras</button>
+        <button mat-button (click)="onSubmit()">Confirmar</button>
+        <!-- <button mat-button (click)="stepper.reset()">Borrar todo</button> -->
       </div>
-      <div>
-        <p>isValid: {{ shipingAddressForm.valid }}</p>
-        <pre> Values: {{ shipingAddressForm.value | json }}</pre>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Methodo de pago</ng-template>
-    <!-- <mat-radio-group [formControl]="floatLabelControl">
-        <mat-radio-button value="auto">Auto</mat-radio-button>
-        <mat-radio-button value="always">Always</mat-radio-button>
-      </mat-radio-group> -->
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-stepper>
+    </mat-step>
+  </mat-stepper>
+</div>

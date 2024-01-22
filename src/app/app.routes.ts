@@ -64,7 +64,7 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./modules').then((m) => m.PrivacyPolicyComponent),
       },
-      { path: '', redirectTo: '/', pathMatch: 'full' },
+      { path: '', redirectTo: '/products', pathMatch: 'full' },
       {
         path: '**',
         loadComponent: () =>

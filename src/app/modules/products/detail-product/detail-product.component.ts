@@ -30,14 +30,20 @@ import { Observable } from 'rxjs';
 export class DetailProductComponent implements OnInit {
   cartService = inject(CartService);
   activRoute = inject(ActivatedRoute);
-  product?: Observable<Product | undefined>;
+  product?: Observable<Product>;
   ngOnInit(): void {
     this.activRoute.params.subscribe((params) => {
-      this.product = this.cartService.getProductById(params['id']);
+      this.product = this.cartService.getProductById(
+        params['id']
+      ) as Observable<Product>;
     });
   }
 
   addProductToCart(product: any) {
-    this.cartService.addToCart(product);
+    product
+      .subscribe((prod: Product) => {
+        this.cartService.addToCart(prod);
+      })
+      .add();
   }
 }

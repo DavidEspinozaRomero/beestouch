@@ -5,6 +5,7 @@
     <!-- <app-cart></app-cart> -->
     <h2>Carrito</h2>
 
+    @if(productsQuantity.value.length > 0) {
     <form (ngSubmit)="onSubmit()" [formGroup]="cartForm">
       <table aria-label="CartDetail" class="tableCart">
         <thead>
@@ -22,7 +23,7 @@
           @for(product of productsQuantity.value; let product_i = $index; track
           product_i){
           <tr [formGroupName]="product_i">
-            <td>{{ product_i }}</td>
+            <td>{{ product_i + 1 }}</td>
             <td>
               <img
                 [src]="'../../../assets/imgs/products/' + product.image"
@@ -71,6 +72,9 @@
         Ir al Pedido
       </button>
     </form>
+    } @else {
+    <p>No hay productos en el carrito</p>
+    }
   </div>
   } @if(isCheckout) {
   <app-checkout></app-checkout>

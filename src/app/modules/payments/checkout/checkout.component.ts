@@ -28,7 +28,6 @@ import { CartService } from '../services/cart.service';
   imports: [
     JsonPipe,
     ReactiveFormsModule,
-    // FormsModule,
     MatButtonModule,
     MatStepperModule,
     MatFormFieldModule,
@@ -98,7 +97,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   onScriptLoad(event: any) {
-    console.log(event);
     this.isScriptLoaded = true;
   }
 

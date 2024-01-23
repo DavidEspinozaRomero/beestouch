@@ -71,6 +71,7 @@ export class CartService {
       this.openSnackBar('Producto ya esta en el carrito', 'OK');
       return;
     }
+    console.log(product);
 
     this.cart.products.push(product);
     this.cart.count++;
@@ -108,14 +109,15 @@ export class CartService {
     for (const product of copyCart.products) {
       const { id, title, price, quantity } = product;
       purchase_units.push({
+        reference_id: `${id}`,
         amount: {
           currency_code: 'USD',
-          value: `${price}`,
+          value: `${price * quantity!}`,
           breakdown: {
             // discount: { currency_code: 'USD', value: `${copyCart.discount}` },
             item_total: {
               currency_code: 'USD',
-              value: `${price}`,
+              value: `${price * quantity!}`,
             },
           },
         },

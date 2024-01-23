@@ -35,9 +35,5 @@ export class SidenavComponent {
       name: 'Products',
       route: 'products',
     },
-    {
-      name: 'Payments',
-      route: 'payments',
-    },
   ];
 }

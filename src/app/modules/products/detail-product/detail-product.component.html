@@ -2,20 +2,22 @@
   <div class="product_image_wrapper">
     <img
       class="product_image"
-      [src]="product.image"
-      [alt]="product.title"
+      [src]="'../../../../assets/imgs/products/' + (product | async)?.image"
+      [alt]="(product | async)?.title"
       lazyload
     />
   </div>
   <section class="product_info">
-    <h2 class="">{{ product.title | titlecase }}</h2>
+    <h2 class="">{{ (product | async)?.title | titlecase }}</h2>
     <p>
-      <span class=""> Presio: {{ product.price | currency : "USD" }} </span>
+      <span class="">
+        Precio: {{ (product | async)?.price | currency : "USD" }}
+      </span>
       <br />
       <small class=""> * impuestos incluidos</small>
     </p>
 
-    <p>{{ product.description }}</p>
+    <p>{{ (product | async)?.description }}</p>
     <button
       matSuffix
       mat-icon-button

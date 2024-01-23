@@ -23,7 +23,12 @@
           product_i){
           <tr [formGroupName]="product_i">
             <td>{{ product_i }}</td>
-            <td><img src="{{ product.image }}" class="product-image" /></td>
+            <td>
+              <img
+                [src]="'../../../assets/imgs/products/' + product.image"
+                class="product-image"
+              />
+            </td>
             <td>{{ product.title }}</td>
             <td>{{ product.price }}</td>
             <td>

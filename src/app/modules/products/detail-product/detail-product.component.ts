@@ -1,13 +1,15 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { AsyncPipe, CurrencyPipe, TitleCasePipe } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-import { CartService } from '../../payments';
-import { CurrencyPipe, TitleCasePipe } from '@angular/common';
+import { CartService, Product } from '../../payments';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-detail-product',
@@ -15,27 +17,26 @@ import { CurrencyPipe, TitleCasePipe } from '@angular/common';
   imports: [
     CurrencyPipe,
     TitleCasePipe,
+    AsyncPipe,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
   ],
   templateUrl: './detail-product.component.html',
   styleUrl: './detail-product.component.scss',
 })
-export class DetailProductComponent {
-  product = {
-    id: 1,
-    title: 'shampoo de miel y gengibre',
-    price: 5,
-    quantity: 1,
-    total: 5,
-    image: '../../../../../assets/imgs/logo.jpg',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas veritatis deserunt eius in earum quod non eligendi, culpa dignissimos commodi suscipit tempora accusantium perspiciatis labore distinctio aspernatur fugiat voluptatem vitae? Inventore officiis dolorum hic illum placeat, eaque quo consequatur, vel eum repudiandae voluptate doloribus ut officia pariatur ipsa adipisci deserunt ipsum aliquid! At ab nostrum nihil dicta possimus hic voluptatem.',
-  };
+export class DetailProductComponent implements OnInit {
   cartService = inject(CartService);
+  activRoute = inject(ActivatedRoute);
+  product?: Observable<Product | undefined>;
+  ngOnInit(): void {
+    this.activRoute.params.subscribe((params) => {
+      this.product = this.cartService.getProductById(params['id']);
+    });
+  }
+
   addProductToCart(product: any) {
     this.cartService.addToCart(product);
   }

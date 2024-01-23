@@ -13,7 +13,8 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Bree Serif", Times, serif !important;
+  text-shadow: 1px 1px 4px black;
 }
 
 p {
@@ -44,3 +45,10 @@ body {
 .float-right {
   float: right;
 }
+
+// Material expands
+// .mat-icon::before {
+//   text-shadow: 1px 1px 2px black;
+// }
+
+// Material Overrides

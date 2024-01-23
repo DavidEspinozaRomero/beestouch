@@ -45,16 +45,17 @@ img {
   }
 
   & .card_title {
+    font-size: 1.5rem;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     position: relative;
     // z-index: 2;
-    top: -7rem;
+    top: -9rem;
     left: 0rem;
 
-    transition: 300ms ease;
+    transition: 300ms ease-in;
   }
 
   &:hover .card_title {
@@ -134,4 +135,9 @@ img {
   .hexagon_gallery_item:nth-of-type(5n + 1) {
     grid-column: 2 / span 2;
   }
+}
+
+// Material expands
+.mat-icon::before {
+  text-shadow: 0px 0px 2px black;
 }

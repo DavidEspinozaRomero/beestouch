@@ -1,0 +1,95 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Miel",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "honey.jpg",
+      "price": 12
+    },
+    {
+      "id": 2,
+      "title": "Polen",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "pollen.jpg",
+      "price": 15
+    },
+    {
+      "id": 3,
+      "title": "Propoleo",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "apitoxina02.jpg",
+      "price": 10
+    },
+    {
+      "id": 4,
+      "title": "Api toxina",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "apitoxina01.jpg",
+      "price": 10
+    },
+    {
+      "id": 5,
+      "title": "Jalea real",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "jaleaReal.jpg",
+      "price": 10
+    },
+    {
+      "id": 6,
+      "title": "Crema de cera y coca",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "skinCare01.jpg",
+      "price": 10
+    },
+    {
+      "id": 7,
+      "title": "Crema de cera",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "skinCare02.jpg",
+      "price": 10
+    },
+    {
+      "id": 8,
+      "title": "Shampoo de miel y gengibre",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "shampoo01.jpg",
+      "price": 10
+    },
+    {
+      "id": 9,
+      "title": "Velas aromaticas de cera",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "candles01.jpg",
+      "price": 10
+    },
+    {
+      "id": 10,
+      "title": "Chocolate relleno de miel",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "chocolatesHoney01.jpg",
+      "price": 10
+    },
+    {
+      "id": 11,
+      "title": "Cera de abeja",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "beeswax01.jpg",
+      "price": 10
+    },
+    {
+      "id": 12,
+      "title": "Barras energizantes de miel",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "energyBarsHoney.jpg",
+      "price": 10
+    },
+    {
+      "id": 13,
+      "title": "Cera para muebles",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "furniturePolishingWax01.jpg",
+      "price": 10
+    }
+  ]
+}

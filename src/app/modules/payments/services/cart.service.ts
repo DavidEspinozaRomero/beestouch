@@ -1,14 +1,19 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Cart, Product } from '../models';
+import { map } from 'rxjs';
 import { IPurchaseUnit } from 'ngx-paypal';
+
+import { Cart, Product } from '../models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   //#region Variables
+  http = inject(HttpClient);
+  #baseURL = '../../../../assets/data/';
   private cart: Cart = {
     products: [],
     count: 0,
@@ -28,24 +33,38 @@ export class CartService {
     return structuredClone(this.#order);
   }
   //#endregion Variables
-  constructor(private _snackBar: MatSnackBar) {
-    for (let i = 1; i < 3; i++) {
-      this.cart.products.push({
-        id: i,
-        title: 'shampoo' + i,
-        price: +(Math.random() * 10 + 1).toFixed(2),
-        quantity: +(Math.random() * 5 + 1).toFixed(0),
-        image: '../../../../../assets/imgs/logo.jpg',
-        description: 'shampoo de miel y gengibre',
-      });
-    }
-  }
+  constructor(private _snackBar: MatSnackBar) {}
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,
     });
   }
+
+  //#region apis
+  getProducts() {
+    const URL = this.#baseURL + 'products.json';
+    return this.http.get<Product[]>(URL).pipe(
+      map((res: any) => {
+        console.log(res);
+        return res.products;
+      })
+    );
+  }
+
+  getProductById(id: number) {
+    const URL = this.#baseURL + 'products.json';
+    return this.http.get<Product>(URL).pipe(
+      map((res: any) => {
+        const product = (res.products as Product[]).find(
+          (product: Product) => product.id == id
+        );
+        return product;
+      })
+    );
+  }
+  //#endregion apis
+
   //#region Methods
   public addToCart(product: Product) {
     if (this.findProductById(product)) {

@@ -1,13 +1,16 @@
 <p>products works!</p>
 <div class="hexagon_gallery">
-  @for(product of products; let i_bg = $index; track i_bg){
+  @for(product of products | async; let i_bg = $index; track i_bg){
   <div class="hexagon_gallery_item card-cover">
-    <!-- <img src="../../../../../assets/imgs/logo.jpg" alt="" srcset="" lazyload /> -->
-    <img [src]="product.image" alt="" lazyload />
+    <app-image
+      routerLink="/products"
+      [src]="product.image"
+      [alt]="product.title"
+    ></app-image>
     <div class="card-info">
-      <div class="card_title d-none">
-        <h2>{{ product.title }}</h2>
-      </div>
+      <!-- <div >
+      </div> -->
+      <h2 class="card_title d-none">{{ product.title }}</h2>
       <div class="item_buttons_container">
         <button
           mat-icon-button
@@ -58,5 +61,7 @@
       </div>
     </div>
   </div>
+  } @empty {
+  <div>No hay productos</div>
   }
 </div>

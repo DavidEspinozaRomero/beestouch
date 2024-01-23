@@ -15,12 +15,16 @@
     >
       <mat-icon>menu</mat-icon>
     </button>
-    <span>Beestouch</span>
+
+    <span routerLink="/products">Beestouch</span>
+
     <img
       src="../../../../../assets/imgs/logo.png"
       class="logo"
       alt="Beestouch logo"
+      routerLink="/products"
     />
+
     <span class="spacer"></span>
     <button
       mat-icon-button
@@ -29,10 +33,19 @@
     >
       <mat-icon> favorite </mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="chart icon">
-      <!-- (click)="toggleBadgeVisibility()" -->
-      <mat-icon [matBadge]="count()" matBadgeColor="warn" [matBadgeHidden]="count() ? false : true">
-        add_shopping_cart
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="chart icon"
+      [routerLink]="['/payments']"
+      [disabled]="count() ? false : true"
+    >
+      <mat-icon
+        [matBadge]="count()"
+        matBadgeColor="warn"
+        [matBadgeHidden]="count() ? false : true"
+      >
+        shopping_cart
       </mat-icon>
     </button>
   </mat-toolbar>

@@ -17,6 +17,7 @@ import { CartService } from './services/cart.service';
 import { CartDetailComponent } from './components';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { Cart, Product } from './models';
+import { ImageComponent } from '../shared/components/image/image.component';
 
 @Component({
   selector: 'app-payments',
@@ -31,6 +32,7 @@ import { Cart, Product } from './models';
     MatInputModule,
     CartDetailComponent,
     CheckoutComponent,
+    ImageComponent,
   ],
   templateUrl: './payments.component.html',
   styleUrl: './payments.component.scss',

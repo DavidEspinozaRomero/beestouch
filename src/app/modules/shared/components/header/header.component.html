@@ -1,52 +1,43 @@
-<!-- <mat-toolbar>
-  <button mat-icon-button>
-    <mat-icon aria-hidden="false" aria-label="home icon" fontIcon="home"></mat-icon>
+<mat-toolbar role="heading" class="header-toolbar">
+  <button
+    (click)="toggleSideNav()"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
   </button>
-  <span>Beestouch</span>
-</mat-toolbar> -->
 
-<p>
-  <mat-toolbar role="heading">
-    <button
-      (click)="toggleSideNav()"
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
+  <span routerLink="/products">Beestouch</span>
+
+  <img
+    src="../../../../../assets/imgs/logo.png"
+    class="logo"
+    alt="Beestouch logo"
+    routerLink="/products"
+  />
+
+  <span class="spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label=" icon-button with heart icon"
+  >
+    <mat-icon> favorite </mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="chart icon"
+    [routerLink]="['/payments']"
+    [disabled]="count() ? false : true"
+  >
+    <mat-icon
+      [matBadge]="count()"
+      matBadgeColor="warn"
+      [matBadgeHidden]="count() ? false : true"
     >
-      <mat-icon>menu</mat-icon>
-    </button>
-
-    <span routerLink="/products">Beestouch</span>
-
-    <img
-      src="../../../../../assets/imgs/logo.png"
-      class="logo"
-      alt="Beestouch logo"
-      routerLink="/products"
-    />
-
-    <span class="spacer"></span>
-    <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label=" icon-button with heart icon"
-    >
-      <mat-icon> favorite </mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="chart icon"
-      [routerLink]="['/payments']"
-      [disabled]="count() ? false : true"
-    >
-      <mat-icon
-        [matBadge]="count()"
-        matBadgeColor="warn"
-        [matBadgeHidden]="count() ? false : true"
-      >
-        shopping_cart
-      </mat-icon>
-    </button>
-  </mat-toolbar>
-</p>
+      shopping_cart
+    </mat-icon>
+  </button>
+</mat-toolbar>

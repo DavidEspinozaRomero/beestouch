@@ -105,6 +105,9 @@ export class PaymentsComponent {
       return;
     }
     this.cartService.createOrder(clonedCart);
+    for (const product of clonedCart.products) {
+      this.cartService.updateProduct(product, product.quantity!);
+    }
     this.isCheckout = true;
   }
 }

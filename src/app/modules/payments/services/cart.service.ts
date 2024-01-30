@@ -14,7 +14,7 @@ export class CartService {
   //#region Variables
   http = inject(HttpClient);
   #baseURL = '../../../../assets/data/';
-  private cart: Cart = {
+  #cart: Cart = {
     products: [],
     count: 0,
     shipping: '',
@@ -27,7 +27,7 @@ export class CartService {
   count = signal(0);
 
   get cartInfo() {
-    return structuredClone(this.cart);
+    return structuredClone(this.#cart);
   }
   get order() {
     return structuredClone(this.#order);
@@ -71,37 +71,41 @@ export class CartService {
       this.openSnackBar('Producto ya esta en el carrito', 'OK');
       return;
     }
-    console.log(product);
-
-    this.cart.products.push(product);
-    this.cart.count++;
-    this.count.set(this.cart.count);
+    this.#cart.products.push(product);
+    this.#cart.count++;
+    this.count.set(this.#cart.count);
     this.openSnackBar('Producto agregado al carrito', 'OK');
   }
   updateQuantity(product: Product, quantity: number) {
     const index = this.findProductIndex(product);
-    if (index == -1) return console.log('Product not found');
-    this.cart.products[index].quantity! = quantity;
-    console.log('Product:', this.cart.products[index]);
+    if (index == -1) return console.log('Product not found:', product);
+    this.#cart.products[index].quantity! = quantity;
+    console.log('Product:', this.#cart.products[index]);
+  }
+  updateProduct(product: Product, quantity: number) {
+    const prod = this.findProductById(product);
+    if (!prod) return console.log('Product not found:', product);
+    prod.quantity! = quantity;
+    console.log('Product:', prod.quantity);
   }
 
   public removeFromCart(product: Product) {
     const index = this.findProductIndex(product);
     if (index == -1) return console.log('Product not found');
-    this.cart.products.splice(index, 1);
-    this.cart.count--;
-    this.count.set(this.cart.count);
+    this.#cart.products.splice(index, 1);
+    this.#cart.count--;
+    this.count.set(this.#cart.count);
   }
   emptyCart() {
-    this.cart.products = [];
+    this.#cart.products = [];
   }
 
   findProductIndex(product: Product) {
-    const index = this.cart.products.indexOf(product);
+    const index = this.#cart.products.indexOf(product);
     return index;
   }
   findProductById(product: Product) {
-    return this.cart.products.find((prod) => prod.id == product.id);
+    return this.#cart.products.find((prod) => prod.id == product.id);
   }
 
   createOrder(copyCart: Cart) {

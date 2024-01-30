@@ -2,94 +2,115 @@
   "products": [
     {
       "id": 1,
-      "title": "Miel",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "title": "Miel Cruda",
+      "description": "Nuestra miel se obtiene sin ningún calor añadido (pasteurización). La fase de cristalización es completamente natural y libre de aditivos o procesos que dañarían la calidad de la miel. Su componente principal es la miel cruda, que ofrece pequeñas cantidades de proteínas, vitaminas y minerales. Debido a que no se ha procesado, la miel cruda contiene enzimas como la glucosa oxidasa, que le dan propiedades antigérmicas a la miel. No es una mezcla de miel y otro edulcorante (por ejemplo, azúcar o jarabe de maíz), o miel que contiene agentes aromatizantes (por ejemplo, sabor de frambuesa natural) u otros ingredientes. SIN aditivosNO pasteurizaciónNO ingredientes artificiales",
       "image": "honey.jpg",
-      "price": 12
+      "price": 12,
+      "available": true
     },
     {
       "id": 2,
-      "title": "Polen",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "title": "Gránulos de Polen",
+      "description": "Tomar polen de abeja diariamente ofrece nutrientes esenciales de fácil absorción que pueden apoyar los niveles de energía, el rendimiento y la salud inmune estacional tanto en hombres como en mujeres. Ofrece gránulos de polen de abeja orgánico recién cosechados que no están adulterados y proporcionan un sabor dulce crudo. Un superalimento natural que retiene nutrientes biológicamente activos, incluyendo proteínas, carbohidratos, grasas, vitaminas, minerales y aminoácidos.",
       "image": "pollen.jpg",
-      "price": 15
+      "price": 15,
+      "available": true
     },
     {
       "id": 3,
-      "title": "Propoleo",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "title": "Extracto de Propóleo",
+      "description": "Naturalmente rico en antioxidantes: esta es una solución natural para calidad y potencia. Sin azúcares refinados, ingredientes artificiales o aditivos. se utiliza como potenciador inmunológico",
       "image": "apitoxina02.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
     },
     {
       "id": 4,
-      "title": "Api toxina",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "title": "Apitoxina",
+      "description": "La apitoxina es el veneno secretado por la picadura de las abejas. La terapia con veneno de abeja se ha utilizado en las prácticas de medicina tradicional durante miles de años por sus propiedades analgésicas y anestésicas. Apoya la respuesta al dolor junto con la falta de movilidad asociada con dolor de espalda, esguinces, hematomas y distensiones. Sus componentes tienen propiedades analgésicas y anestésicas para lograr bienestar y comodidad.",
       "image": "apitoxina01.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
     },
     {
       "id": 5,
-      "title": "Jalea real",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "title": "Jalea Real",
+      "description": "La jalea real es una sustancia altamente nutritiva hecha por abejas nodrizas para alimentar a la reina de la colonia. La jalea real es conocida por sus propiedades de refuerzo del sistema inmunológico y es una potente fuente de antioxidantes y probióticos, lo que hace de este superalimento un suplemento esencial para una salud óptima. También contiene altas concentraciones de vitaminas, aminoácidos, enzimas y antioxidantes para apoyar la salud a largo plazo.",
       "image": "jaleaReal.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
     },
     {
       "id": 6,
-      "title": "Crema de cera y coca",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "title": "Crema de cera",
+      "description": "Hidrata, calma y repara la piel seca y dañada. crema facial natural con miel orgánica*, cera de abejas orgánica* y aceites esenciales suaviza la piel y restaura tu brillo radiante. * contiene naturalmente polen, propóleo y jalea real. Esta crema se absorbe a nivel celular, hidratando la cara, al tiempo que mejora la producción de colágeno para disminuir las arrugas.",
       "image": "skinCare01.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
     },
     {
       "id": 7,
-      "title": "Crema de cera",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "title": "Crema Facial",
+      "description": "Hidrata, calma y repara la piel seca y dañada. crema facial natural con miel orgánica*, cera de abejas orgánica* y aceites esenciales suaviza la piel y restaura tu brillo radiante. * contiene naturalmente polen, propóleo y jalea real. Esta crema se absorbe a nivel celular, hidratando la cara, al tiempo que mejora la producción de colágeno para disminuir las arrugas.",
       "image": "skinCare02.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
     },
     {
       "id": 8,
       "title": "Shampoo de miel y gengibre",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "description": "Repara y restaura tu cabello a una salud completa. Nuestra potente fórmula natural puede ayudar con problemas como grasa, sequedad, picazón, eczema, daño, sensibilidad, adelgazamiento y más. Fomenta el crecimiento del cabello con ingredientes que no solo estimulan el folículo, sino que también ayudan a manejar el problema subyacente que causa la pérdida de cabello Puro, seguro y eficaz. Todos nuestros productos tienen un pH equilibrado perfectamente y sin parabenos, sin sulfatos, sin aceite mineral, sin fragancia, sin gluten, de origen responsable y sin crueldad para un cuidado del cabello completamente seguro y sin preocupaciones. El cabello brillante, suave y hermoso finalmente es alcanzable. Nuestro champú no simplemente elimina los aceites para dejarte seco como tantos otros productos, sino que limpia profundamente mientras que también nutre e hidrata, porque el cabello sano es un cabello hermoso.",
       "image": "shampoo01.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
     },
     {
       "id": 9,
       "title": "Velas aromaticas de cera",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "description": "El aroma da una sensación de comodidad con su aroma, invitando a un ambiente y paz. no tóxica, segura de almacenar alrededor de tu familia y mascotas cuando no están en uso, sin aromas añadidos.  hechas de cera de abeja de alta calidad, libre de productos químicos o colorantes. Cada vela de cera de abejas está hecha a mano para garantizar que solo obtengas una vela natural superior y pura. ",
       "image": "candles01.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
     },
     {
       "id": 10,
       "title": "Chocolate relleno de miel",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "description": "Delicioso chocolate relleno con miel, con cada bocado, derrite excelencia en tu boca. Seis barras envueltas individualmente en cada paquete para que puedas compartirlas o guardarlos. Excelente como regalo para Navidad, Día de San Valentín, cumpleaños, aniversarios, fiestas de oficina o simplemente para tener en la casa, para aquellos momentos en que necesitas disfrutar de algo perfecto, sabroso y acogedor.",
       "image": "chocolatesHoney01.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
     },
     {
       "id": 11,
       "title": "Cera de abeja",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "description": "Está filtrada y de la más alta calidad para darte un producto perfecto para cualquier uso cosmético o hobby. Con sus propiedades naturales y alta capacidad de retención de agua, es ideal para lociones, bálsamos labiales y productos para el cuidado de la piel que ayudan a retener la humedad natural de la piel. También puedes derretir para hacer tus propias velas aromáticas. Los pellets hacen que sea fácil de derretir para lo que necesite.  La cera de abeja calma y suaviza la piel, la protege de la deshidratación. Y ya que las velas de cera de abeja emiten muy poco humo, nuestra cera de abeja es ideal para hacer velas.",
       "image": "beeswax01.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
     },
     {
       "id": 12,
       "title": "Barras energizantes de miel",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "description": "Están repletas de la nutrición que necesitas para comenzar tu día o ayudarte a superar tu depresión por la tarde. Nuestra barra de miel gourmet es libre de gluten, sin maní, sin granos y sin soja. Es el desayuno perfecto para llevar, con solo 210 calorías. Los ingredientes limpios y sin sabores ni colores artificiales, lo convierten en el aperitivo perfecto y saludable para aquellos en movimiento. ",
       "image": "energyBarsHoney.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
     },
     {
       "id": 13,
-      "title": "Cera para muebles",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "title": "Impermeabilizante de cera de abeja",
+      "description": "Fórmula natural, no tóxica, no contiene productos químicos. Evita, protege tu cuero y madera de daños por agua. Protector mejorado: va un paso más allá que cualquier crema de cuero. Con su capacidad de prevenir y proteger de daños por agua. Fuerte impermeabilidad: penetra profundamente en el cuero y deja un fuerte sello impermeable. Protección para botas, zapatos, sombreros, guantes, pantalones, chaquetas, muebles de madera y mucho más",
       "image": "furniturePolishingWax01.jpg",
-      "price": 10
+      "price": 10,
+      "available": true
+    },
+    {
+      "id": 14,
+      "title": "Turron de miel y almendras",
+      "description": "Perfecto para vacaciones o simplemente para tener disponible para los huéspedes familiares cuando vengan. Esta confitería de turrón es libre de gluten, no tiene grasas trans y es una buena fuente de proteínas. Cada barra Turron está compuesta por un 63% de almendras. crujiente contiene un 63% de almendras. de almendra dura y miel de primera calidad. Este delicioso caramelo es la mezcla perfecta entre almendras y miel.",
+      "image": "energyBarsHoney.jpg",
+      "price": 10,
+      "available": true
     }
   ]
 }

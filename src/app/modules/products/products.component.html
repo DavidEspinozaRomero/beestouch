@@ -27,6 +27,7 @@
       [alt]="product.title"
     ></app-image>
     <div class="card-info">
+      <span class="card_price">{{ product.price | currency }}</span>
       <h2 class="card_title d-none">{{ product.title }}</h2>
       <div class="item_buttons_container">
         <button

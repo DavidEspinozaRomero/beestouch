@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CurrencyPipe } from '@angular/common';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,6 +16,7 @@ import { ImageComponent } from '../shared/components/image/image.component';
   imports: [
     RouterLink,
     AsyncPipe,
+    CurrencyPipe,
     MatButtonModule,
     MatIconModule,
     MatInputModule,

@@ -1,12 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 import { CartService } from '../payments/services/cart.service';
+import { FilterByProductNamePipe } from './pipes';
 import { ImageComponent } from '../shared/components/image/image.component';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-products',
@@ -16,7 +18,9 @@ import { AsyncPipe } from '@angular/common';
     AsyncPipe,
     MatButtonModule,
     MatIconModule,
+    MatInputModule,
     ImageComponent,
+    FilterByProductNamePipe,
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',

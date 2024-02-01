@@ -3,8 +3,23 @@
   producción de alimentos saludables y sostenibles. Además, nuestros productos
   son deliciosos y beneficiosos para tu salud.
 </p>
+<div class="filters-wrapper">
+  <mat-form-field class="example-full-width">
+    <mat-label>Buscar...</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Miel de abeja"
+      value=""
+      #search
+      (keyup)="(search)"
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
 <div class="hexagon_gallery">
-  @for(product of products | async; let i_bg = $index; track i_bg){
+  @for(product of (products | async) | filterByProductName : search.value ; let
+  i_bg = $index; track i_bg){
   <div class="hexagon_gallery_item card-cover">
     <app-image
       routerLink="/products"

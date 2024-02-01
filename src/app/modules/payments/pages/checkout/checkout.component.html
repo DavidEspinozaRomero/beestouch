@@ -1,4 +1,62 @@
-<div class="stepper-container">
+<div class="checkout">
+  <h2>Metodo de Pago</h2>
+  <p></p>
+  <form [formGroup]="paymentForm">
+    <mat-radio-group formControlName="type">
+      <mat-radio-button value="bankTransfer"
+        >Transferencia Bancaria</mat-radio-button
+      >
+      <mat-radio-button value="paypal">Paypal</mat-radio-button>
+    </mat-radio-group>
+  </form>
+  @if(paymentForm.value.type === 'bankTransfer'){
+  <p>su id de orden es: {{ cartService.cartID }}</p>
+  <h3>Cuentas Bancarias</h3>
+  <p>
+    <small>
+      Por favor deposita el monto de tu compra en nuestra cuenta bancaria.
+    </small>
+  </p>
+  <div class="banks">
+    @for (bank of [1,1,1,1]; let i_bank = $index; track i_bank) {
+    <div class="bank-info">
+      <h4 class="bank-name"><b>Banco Pichincha</b></h4>
+      <p class="bank-account">
+        David Espinoza <br />
+        Cuenta Ahorros: 000-000-000-000 <br />
+        RUC: 0000000000000
+        <!-- Cuenta Corriente: 000-000-000-000 -->
+        <br />
+      </p>
+    </div>
+
+    }
+  </div>
+  } @if(paymentForm.value.type === 'paypal'){
+  <p class="alert-credit-card">
+    <b>Ten en cuenta:</b> Asegúrate de que tu tarjeta de crédito esté activa
+    para compras en línea porque podrías recibir un código de verificación en tu
+    número de teléfono o correo electrónico asociado con tu tarjeta.
+  </p>
+  <div style="background-color: snow">
+    <ngx-paypal
+      [config]="payPalConfig"
+      (scriptLoaded)="isScriptLoaded = true"
+    ></ngx-paypal>
+    @if(!isScriptLoaded) {
+    <mat-spinner></mat-spinner>
+    }
+  </div>
+  }
+  <br />
+  <br />
+  <div>
+    <button mat-button>Atras</button>
+    <button mat-button (click)="onSubmit()">Confirmar</button>
+  </div>
+</div>
+
+<!-- <div class="stepper-container">
   <mat-stepper orientation="vertical" [linear]="false" #stepper>
     <mat-step [stepControl]="billingForm">
       <form [formGroup]="billingForm">
@@ -67,10 +125,6 @@
           <button mat-button matStepperNext>Siguiente</button>
         </div>
       </form>
-      <!-- <div>
-        <p>isValid: {{ billingForm.valid }}</p>
-        <pre>Values: {{ billingForm.value | json }}</pre>
-      </div> -->
     </mat-step>
     <mat-step [stepControl]="shipingAddressForm">
       <form [formGroup]="shipingAddressForm">
@@ -144,8 +198,6 @@
           David Espinoza <br />
           Cuenta Ahorros: 000-000-000-000 <br />
           RUC: 0000000000000
-          <!-- Cuenta Corriente: 000-000-000-000 -->
-          <br />
           <br />
         </p>
       </div>
@@ -163,8 +215,8 @@
       <div>
         <button mat-button matStepperPrevious>Atras</button>
         <button mat-button (click)="onSubmit()">Confirmar</button>
-        <!-- <button mat-button (click)="stepper.reset()">Borrar todo</button> -->
+        <button mat-button (click)="stepper.reset()">Borrar todo</button>
       </div>
     </mat-step>
   </mat-stepper>
-</div>
+</div> -->

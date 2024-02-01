@@ -1,7 +1,8 @@
 export interface Cart {
+  id?: string;
   products: Product[];
   count: number;
-  shipping: string;
+  shipping: number;
   code?: string;
   discount?: number;
 }

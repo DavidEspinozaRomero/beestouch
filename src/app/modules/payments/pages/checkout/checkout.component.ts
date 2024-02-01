@@ -20,7 +20,7 @@ import {
   NgxPayPalModule,
 } from 'ngx-paypal';
 
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -45,6 +45,7 @@ export class CheckoutComponent implements OnInit {
   router = inject(Router);
   isScriptLoaded = false;
   public payPalConfig?: IPayPalConfig;
+  randomId = Math.random().toString(36).slice(-8);
 
   billingForm = this.fb.nonNullable.group({
     client: ['', [Validators.required]],
@@ -101,7 +102,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   private initConfig(): void {
-    const order = this.cartService.order;
     this.payPalConfig = {
       currency: 'USD',
       clientId:
@@ -109,7 +109,14 @@ export class CheckoutComponent implements OnInit {
       createOrderOnClient: (data) =>
         <ICreateOrderRequest>{
           intent: 'CAPTURE',
-          purchase_units: order,
+          purchase_units: [
+            {
+              amount: {
+                currency_code: 'USD',
+                value: `${this.cartService.amountOrder}`,
+              },
+            },
+          ],
         },
       advanced: {
         commit: 'true',

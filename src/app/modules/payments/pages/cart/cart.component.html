@@ -1,0 +1,110 @@
+<div class="payments-container">
+  <div class="cart-container">
+    <h2>Carrito</h2>
+
+    @if(productsQuantity.value.length > 0) {
+    <form (ngSubmit)="onSubmit()" [formGroup]="cartForm">
+      <table aria-label="CartDetail" class="tableCart">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th><div class="text-right">Subtotal</div></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody formArrayName="products">
+          @for(product of productsQuantity.value; let product_i = $index; track
+          product_i){
+          <tr [formGroupName]="product_i">
+            <td>{{ product_i + 1 }}</td>
+            <td>
+              <img
+                [src]="'../../../assets/imgs/products/' + product.image"
+                [alt]="product.title"
+                class="product-image"
+              />
+            </td>
+            <td>{{ product.title }}</td>
+            <td>{{ product.price | currency }}</td>
+            <td>
+              <input
+                type="number"
+                matInput
+                min="0"
+                max="99"
+                placeholder="Ingrese una cantidad"
+                formControlName="quantity"
+              />
+            </td>
+            <td class="text-right">
+              {{ product.price * product.quantity | currency }}
+            </td>
+            <td>
+              <button
+                mat-icon-button
+                class="detail"
+                aria-label="Example icon button with a vertical three dot icon"
+                (click)="removeFromCartDetail(product_i)"
+              >
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="share icon"
+                  fontIcon="delete"
+                ></mat-icon>
+              </button>
+            </td>
+          </tr>
+          }
+          <tr>
+            <td colspan="4"></td>
+            <td colspan="2">
+              <div>
+                SubTotal:
+                <span class="float-right">
+                  {{ getSubTotal() | currency }}
+                </span>
+              </div>
+              <div>
+                Descuento:
+                <span class="float-right"> {{ 0 | currency }} </span>
+              </div>
+              <div>
+                Envio:
+                <span class="float-right">
+                  {{ constoEnvio | currency }}
+                </span>
+              </div>
+              <div>
+                <b>
+                  TOTAL:
+                  <span class="float-right">{{ getTotal() | currency }}</span>
+                </b>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <!-- <mat-form-field class="">
+        <mat-label>Código de Descuento</mat-label>
+        <input matInput placeholder="Navidad2020" />
+      </mat-form-field> -->
+      <button mat-raised-button type="submit" class="float-right">
+        Ir al Pedido
+      </button>
+    </form>
+    } @else {
+    <p>No hay productos en el carrito</p>
+    }
+  </div>
+
+  <!-- <div>
+    <p>isValid: {{ cartForm.valid }}</p>
+    <pre> Values: {{ cartForm.value | json }}</pre>
+  </div> -->
+</div>

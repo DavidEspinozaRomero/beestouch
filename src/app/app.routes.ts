@@ -40,6 +40,11 @@ export const routes: Routes = [
         loadComponent: () => import('./modules').then((m) => m.CartComponent),
       },
       {
+        path: 'checkout',
+        loadComponent: () =>
+          import('./modules').then((m) => m.CheckoutComponent),
+      },
+      {
         path: 'contact',
         loadComponent: () =>
           import('./modules').then((m) => m.ContactComponent),
@@ -53,11 +58,6 @@ export const routes: Routes = [
         path: 'detail-product/:id',
         loadComponent: () =>
           import('./modules').then((m) => m.DetailProductComponent),
-      },
-      {
-        path: 'payments',
-        loadComponent: () =>
-          import('./modules').then((m) => m.PaymentsComponent),
       },
       {
         path: 'privacy-policy',

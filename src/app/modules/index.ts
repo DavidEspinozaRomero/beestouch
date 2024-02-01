@@ -6,7 +6,7 @@ export * from './contact/contact.component';
 export * from './home/home.component';
 export * from './landing/landing.component';
 export * from './order-confirmation/order-confirmation.component';
-export * from './payments/cart/cart.component';
+export * from './payments/pages/cart/cart.component';
 export * from './payments';
 export * from './payments/services';
 export * from './privacy-policy/privacy-policy.component';

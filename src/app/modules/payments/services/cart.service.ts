@@ -15,22 +15,29 @@ export class CartService {
   http = inject(HttpClient);
   #baseURL = '../../../../assets/data/';
   #cart: Cart = {
+    id: Math.random().toString(36).slice(2, 15),
     products: [],
     count: 0,
-    shipping: '',
+    shipping: 0,
     code: '',
     discount: 0,
   };
 
   #order: IPurchaseUnit[] | undefined;
-
+  #amountOrder = 0;
   count = signal(0);
 
   get cartInfo() {
     return structuredClone(this.#cart);
   }
+  get cartID() {
+    return this.#cart.id;
+  }
   get order() {
     return structuredClone(this.#order);
+  }
+  get amountOrder() {
+    return this.#amountOrder;
   }
   //#endregion Variables
   constructor(private _snackBar: MatSnackBar) {}
@@ -107,7 +114,21 @@ export class CartService {
   findProductById(product: Product) {
     return this.#cart.products.find((prod) => prod.id == product.id);
   }
-
+  getAmount(copyCart: Cart) {
+    const { products, discount, shipping } = copyCart;
+    let total = 0;
+    for (const product of products) {
+      const { price, quantity } = product;
+      total += price * quantity!;
+    }
+    if (discount) {
+      total -= discount;
+    }
+    if (shipping) {
+      total -= shipping;
+    }
+    this.#amountOrder = total;
+  }
   createOrder(copyCart: Cart) {
     const purchase_units: IPurchaseUnit[] = [];
     for (const product of copyCart.products) {
@@ -141,5 +162,6 @@ export class CartService {
     this.#order = purchase_units;
     console.log(this.#order);
   }
+
   //#endregion Methods
 }
